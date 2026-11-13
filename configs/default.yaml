@@ -1,0 +1,19 @@
+# Data
+data_root: null            # null = auto-detect (/kaggle/input, ./data, .)
+out_dir: outputs
+img_size: 64               # source maps are 32x32; upsampled to 64x64
+drop_classes: []           # e.g. ["near full", "none"] for the paper's 7-class setup
+val_frac: 0.15
+test_frac: 0.15
+
+# Training
+batch_size: 64
+epochs: 60
+lr: 0.001
+weight_decay: 0.0001
+label_smoothing: 0.05
+patience: 12               # early stopping on validation macro-F1
+num_workers: 2
+seed: 42
+augment: true              # rot90 / flips / light noise (label-invariant for wafer maps)
+resnet_pretrained: false   # true needs internet for ImageNet weights
